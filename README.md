@@ -40,9 +40,9 @@ Proyek ini dibangun menggunakan teknologi *frontend* murni, menjamin kecepatan d
 
 ## 📸 Tampilan Proyek (Screenshot/Demo)
 
-*(Segera setelah Anda mengunggah *screenshot* dari peta Kota Jambi Anda, letakkan di sini untuk menarik perhatian)*
+*(Gambar ini menunjukkan antarmuka peta interaktif Kota Jambi yang responsif.)*
 
-![Tangkapan Layar Peta WebGIS Kota Jambi](link-gambar-screenshot-anda.png)
+![Tampilan Peta WebGIS Interaktif Kota Jambi](assets/tampilan-website.png)
 
 ## ⚖️ Lisensi
 
