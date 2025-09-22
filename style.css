@@ -1,0 +1,69 @@
+/* CSS Lengkap untuk seluruh halaman */
+
+/* Gaya umum untuk body dan elemen utama */
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+    /* Memberikan ruang aman untuk header dan footer */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Gaya untuk peta */
+#map { 
+    /* Mengisi sisa ruang yang tersedia di antara header dan footer */
+    flex-grow: 1;
+    z-index: 1;
+}
+
+/* Gaya untuk kontrol kustom (dropdown filter) */
+.leaflet-bar.filter-control {
+    padding: 6px 8px;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.65);
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Gaya untuk Header */
+#main-header {
+    width: 100%;
+    padding: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+#main-header h1 {
+    margin: 0;
+    font-size: 24px;
+    color: #333;
+}
+
+/* Gaya untuk Footer */
+#main-footer {
+    width: 100%;
+    padding: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+#main-footer p {
+    margin: 0;
+    font-size: 14px;
+    color: #666;
+}
+
+.logo {
+  height: 30px; /* Atur tinggi logo sesuai keinginan */
+  margin-right: 10px; /* Atur jarak antara logo dan teks */
+  vertical-align: middle; /* Menjaga logo tetap sejajar di tengah dengan teks */
+}
