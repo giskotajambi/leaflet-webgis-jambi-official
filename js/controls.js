@@ -94,4 +94,18 @@ export function setupControls(kecamatanList) {
             layer.bindPopup('Luas: ' + area_ha + ' ha').openPopup();
         }
     });
+
+    // 5. Kontrol Geolocation (Lihat Posisi Saat Ini)
+    L.control.locate({
+        position: 'topleft',
+        strings: {
+            title: "Tunjukkan lokasi saya"
+        },
+        locateOptions: {
+            enableHighAccuracy: true,
+            maxZoom: 16
+        },
+        keepCurrentZoomLevel: false,
+        flyTo: true
+    }).addTo(map);
 }
