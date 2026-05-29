@@ -1,7 +1,7 @@
 // js/main.js
 
 // Import semua fungsionalitas dari modul yang berbeda
-import { initializeMap, layerControl } from './map.js';
+import { initializeMap } from './map.js';
 // Hapus getOverlayLayers karena sudah dihapus dari layers.js
 import { initializeGeoJSONLayer } from './layers.js'; 
 import { setupControls } from './controls.js';
@@ -22,7 +22,8 @@ window.onload = async function() {
             // Fungsi ini akan menambahkan layer batas RT ke layerControl
             initializeGeoJSONLayer(geojsonData);
             
-            // Siapkan kontrol lain, termasuk dropdown filter
+            // Siapkan kontrol lain, termasuk dropdown filter dan tombol disclaimer
+            // Fungsi ini dipanggil tepat setelah peta dan data layer siap sepenuhnya
             setupControls(kecamatanList);
         } else {
             console.error("Gagal memuat data GeoJSON. Peta tidak akan menampilkan batas kelurahan.");

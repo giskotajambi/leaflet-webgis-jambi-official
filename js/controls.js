@@ -60,7 +60,48 @@ export function setupControls(kecamatanList) {
 
     // 3. Kontrol Pencarian Lokasi (Geocoder) dan Skala
     L.Control.geocoder().addTo(map);
-    L.control.scale().addTo(map);
+    L.control.scale({ position: 'bottomleft' }).addTo(map);
+
+    // ==========================================
+    // TAMBAHAN: KONTROL DISCLAIMER (OPSI 2 - BOTTOM LEFT)
+    // ==========================================
+    const DisclaimerControl = L.Control.extend({
+        options: {
+            position: 'bottomleft'
+        },
+        onAdd: function(map) {
+            const btn = L.DomUtil.create('div', 'disclaimer-control-btn');
+            btn.innerHTML = 'ℹ️'; 
+            btn.title = 'Lihat Disclaimer';
+
+            L.DomEvent.disableClickPropagation(btn);
+
+            L.DomEvent.on(btn, 'click', function() {
+                const modal = document.getElementById('disclaimerModal');
+                if (modal) modal.style.display = 'block';
+            });
+
+            return btn;
+        }
+    });
+    new DisclaimerControl().addTo(map);
+
+    // Logika Event Listener untuk Menutup Modal
+    const closeModal = document.getElementById('closeModal');
+    const modal = document.getElementById('disclaimerModal');
+
+    if (closeModal && modal) {
+        closeModal.onclick = function() {
+            modal.style.display = 'none';
+        };
+
+        window.addEventListener('click', function(event) {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    }
+    // ==========================================
 
     // 4. Kontrol Menggambar (Draw Tools)
     const drawnItems = new L.FeatureGroup();
