@@ -4,24 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>WebGIS Interaktif Kota Jambi | Peta Digital Geospasial Leaflet Resmi</title>
+    <title>WebGIS Interaktif Kota Jambi | Peta Digital Geospasial Leaflet</title>
 
-    <meta name="description" content="Platform WebGIS interaktif Kota Jambi menggunakan Leaflet. Solusi geospasial resmi untuk eksplorasi, visualisasi data, dan pengukuran di wilayah Kota Jambi.">
+    <meta name="description" content="Platform WebGIS interaktif Kota Jambi menggunakan Leaflet. Solusi geospasial untuk eksplorasi, visualisasi data, dan pengukuran di wilayah Kota Jambi.">
     
     <link rel="canonical" href="https://giskotajambi.github.io/leaflet-webgis-jambi-official/"/>
 
     <meta name="keywords" content="WebGIS Kota Jambi, Peta Digital Jambi, Geospasial Jambi, Leaflet GIS, Peta Interaktif Jambi, Pemetaan Kota Jambi">
 
-    <meta property="og:title" content="WebGIS Interaktif Kota Jambi | Peta Digital Geospasial Leaflet Resmi" />
-    <meta property="og:description" content="Platform WebGIS interaktif Kota Jambi menggunakan Leaflet. Solusi geospasial resmi untuk eksplorasi, visualisasi data, dan pengukuran di wilayah Kota Jambi." />
+    <meta property="og:title" content="WebGIS Interaktif Kota Jambi | Peta Digital Geospasial Leaflet" />
+    <meta property="og:description" content="Platform WebGIS interaktif Kota Jambi menggunakan Leaflet. Solusi geospasial untuk eksplorasi, visualisasi data, dan pengukuran di wilayah Kota Jambi." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://giskotajambi.github.io/leaflet-webgis-jambi-official/" />
     <meta property="og:image" content="https://giskotajambi.github.io/leaflet-webgis-jambi-official/assets/tampilan-website.png" />
     <meta property="og:site_name" content="WebGIS Kota Jambi" />
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="WebGIS Interaktif Kota Jambi | Peta Digital Geospasial Leaflet Resmi">
-    <meta name="twitter:description" content="Platform WebGIS interaktif Kota Jambi menggunakan Leaflet. Solusi geospasial resmi untuk eksplorasi, visualisasi data, dan pengukuran di wilayah Kota Jambi.">
+    <meta name="twitter:title" content="WebGIS Interaktif Kota Jambi | Peta Digital Geospasial Leaflet">
+    <meta name="twitter:description" content="Platform WebGIS interaktif Kota Jambi menggunakan Leaflet. Solusi geospasial untuk eksplorasi, visualisasi data, dan pengukuran di wilayah Kota Jambi.">
     <meta name="twitter:image" content="https://giskotajambi.github.io/leaflet-webgis-jambi-official/assets/tampilan-website.png">
 
     <script type="application/ld+json">
@@ -56,10 +56,21 @@
 <body>
 
 <header id="main-header">
-<h1><img src="assets/Lambang_Kota_Jambi.png" alt="Logo Kota Jambi" class="logo"> WebGIS Kota Jambi</h1>
+    <h1><img src="assets/Lambang_Kota_Jambi.png" alt="Logo Kota Jambi" class="logo"> WebGIS Kota Jambi</h1>
 </header>
 
     <div id="map"></div>
+
+    <div id="disclaimerModal" class="modal-disclaimer">
+        <div class="modal-content">
+            <span class="close-modal-btn" id="closeModal">&times;</span>
+            <h3>⚠️ Disclaimer & Batasan Data</h3>
+            <hr>
+            <p style="text-align: justify; font-size: 14px; margin-top: 10px; color: #333; line-height: 1.5;">
+                Peta batas RT di dalam WebGIS ini dibuat murni untuk tujuan berbagi informasi, edukasi, dan visualisasi komunitas. Data yang disajikan bukan merupakan batas administrasi resmi yang memiliki kekuatan hukum tetap. Jika terdapat perbedaan batas di lapangan, silakan hubungi pengelola untuk proses pembaruan data.
+            </p>
+        </div>
+    </div>
 
     <footer id="main-footer">
         <p>&copy; 2026 GIS Jambi Geospatial Solution. All rights reserved.</p>
@@ -80,7 +91,7 @@
         "name": "Kota Jambi"
       },
       "name": "WebGIS Interaktif Kota Jambi",
-      "description": "Peta digital geospasial resmi dan interaktif Kota Jambi yang memungkinkan eksplorasi, visualisasi, dan pengukuran data geografis menggunakan teknologi Leaflet."
+      "description": "Peta digital geospasial interaktif Kota Jambi yang memungkinkan eksplorasi, visualisasi, dan pengukuran data geografis menggunakan teknologi Leaflet."
     }
     </script>
     

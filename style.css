@@ -67,3 +67,53 @@ body {
   margin-right: 10px; /* Atur jarak antara logo dan teks */
   vertical-align: middle; /* Menjaga logo tetap sejajar di tengah dengan teks */
 }
+
+/* Update Style Tombol di style.css */
+.disclaimer-control-btn {
+    background-color: #ffffff !important; /* Memaksa warna putih */
+    width: 34px !important;
+    height: 34px !important;
+    border-radius: 4px;
+    border: 2px solid rgba(0,0,0,0.2);
+    cursor: pointer;
+    text-align: center;
+    line-height: 30px !important; /* Mengatur posisi vertikal emoji */
+    font-weight: bold;
+    font-size: 16px;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000; /* Memastikan berada di atas peta */
+}
+.disclaimer-control-btn:hover {
+    background-color: #f4f4f4 !important;
+}
+
+/* Style untuk Modal Popup (Tengah Layar) */
+.modal-disclaimer {
+    display: none; 
+    position: fixed; 
+    z-index: 9999; 
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.5); 
+}
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto; 
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%; max-width: 500px;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    font-family: Arial, sans-serif;
+}
+.close-modal-btn {
+    position: absolute;
+    right: 15px; top: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #aaa;
+}
+.close-modal-btn:hover { color: #000; }
