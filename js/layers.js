@@ -66,16 +66,32 @@ export function filterByKecamatan(kecamatan) {
         style: style,
         onEachFeature: function(feature, layer) {
             if (feature.properties) {
-                var popupContent = "<table>";
+                // Membuat elemen tabel secara aman untuk mencegah XSS
+                const table = document.createElement('table');
+                table.style.width = '100%';
+                table.style.borderCollapse = 'collapse';
+                
                 for (var key in feature.properties) {
                     if (feature.properties.hasOwnProperty(key)) {
                         if (key.toLowerCase() !== 'id' && key.toLowerCase() !== 'geom') {
-                            popupContent += "<tr><td><b>" + key + "</b></td><td>" + feature.properties[key] + "</td></tr>";
+                            const row = document.createElement('tr');
+                            
+                            const cellKey = document.createElement('td');
+                            const strongKey = document.createElement('strong');
+                            strongKey.textContent = key; // Aman: menggunakan textContent
+                            cellKey.appendChild(strongKey);
+                            
+                            const cellValue = document.createElement('td');
+                            cellValue.textContent = feature.properties[key]; // Aman: menggunakan textContent
+                            
+                            row.appendChild(cellKey);
+                            row.appendChild(cellValue);
+                            table.appendChild(row);
                         }
                     }
                 }
-                popupContent += "</table>";
-                layer.bindPopup(popupContent);
+                
+                layer.bindPopup(table);
             }
             
             layer.on({
@@ -163,7 +179,34 @@ export async function initializeGeoJSONLayer(data) {
             },
             onEachFeature: function(feature, layer) {
                 if (feature.properties && feature.properties.Kelurahan && feature.properties.RT) {
-                    layer.bindPopup(`<b>Batas RT</b><br>Kelurahan: ${feature.properties.Kelurahan}<br>RT: ${feature.properties.RT}`);
+                    // Membuat konten popup secara aman untuk mencegah XSS
+                    const popupDiv = document.createElement('div');
+                    
+                    const title = document.createElement('strong');
+                    title.textContent = 'Batas RT';
+                    popupDiv.appendChild(title);
+                    
+                    const br1 = document.createElement('br');
+                    popupDiv.appendChild(br1);
+                    
+                    const kelLabel = document.createTextNode('Kelurahan: ');
+                    popupDiv.appendChild(kelLabel);
+                    
+                    const kelValue = document.createElement('span');
+                    kelValue.textContent = feature.properties.Kelurahan;
+                    popupDiv.appendChild(kelValue);
+                    
+                    const br2 = document.createElement('br');
+                    popupDiv.appendChild(br2);
+                    
+                    const rtLabel = document.createTextNode('RT: ');
+                    popupDiv.appendChild(rtLabel);
+                    
+                    const rtValue = document.createElement('span');
+                    rtValue.textContent = feature.properties.RT;
+                    popupDiv.appendChild(rtValue);
+                    
+                    layer.bindPopup(popupDiv);
                 }
             }
         }).addTo(map);
