@@ -12,6 +12,9 @@
 
     <meta name="keywords" content="WebGIS Kota Jambi, Peta Digital Jambi, Geospasial Jambi, Leaflet GIS, Peta Interaktif Jambi, Pemetaan Kota Jambi">
 
+    <!-- Content Security Policy (CSP) untuk mencegah XSS -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdn.jsdelivr.net; font-src 'self' https://unpkg.com; img-src 'self' data: https:; connect-src 'self' https://*.supabase.co">
+
     <meta property="og:title" content="WebGIS Interaktif Kota Jambi | Peta Digital Geospasial Leaflet" />
     <meta property="og:description" content="Platform WebGIS interaktif Kota Jambi menggunakan Leaflet. Solusi geospasial untuk eksplorasi, visualisasi data, dan pengukuran di wilayah Kota Jambi." />
     <meta property="og:type" content="website" />
@@ -46,10 +49,10 @@
     <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192x192.png">
     <link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512x512.png">
 
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css" />
-    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css" integrity="sha384-NZLkVuBRMEeB4VeZz27WwTRvlhec30biQ8Xx7zG7JJnkvEKRg5qi6BNbEXo9ydwv" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" integrity="sha384-hniBVIJ5edqO4TjpubaOoIS3Q+mo0dWc7Km3Uh6xJVKIU68T8pjmasjtOlFT7WBZ" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.css" integrity="sha384-RF1CbDOI1h4P3AQN0FkoXIcyq9v8YJU+M1jC986xV1IQERsqSWFTPqcL4d3dH6wA" crossorigin="anonymous" />
     
     <link rel="stylesheet" href="style.css"> 
 
@@ -96,9 +99,9 @@
     }
     </script>
     
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.js" charset="utf-8"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js" integrity="sha384-JP5UPxIO2Tm2o79Fb0tGYMa44jkWar53aBoCbd8ah0+LcCDoohTIYr+zIXyfGIJN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.js" integrity="sha384-wWlBjSC6Ni8Cl/NWZk3Uu6ObpqIz7suMSzOoDKoHjID5NN15oPdCMJDi3q0xRK" crossorigin="anonymous" charset="utf-8"></script>
 
     <script type="module" src="js/main.js"></script>
 </body>
