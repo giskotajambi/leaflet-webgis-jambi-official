@@ -13,7 +13,7 @@
     <meta name="keywords" content="WebGIS Kota Jambi, Peta Digital Jambi, Geospasial Jambi, Leaflet GIS, Peta Interaktif Jambi, Pemetaan Kota Jambi">
 
     <!-- Content Security Policy (CSP) DIPERBARUI: Menambahkan nominatim.openstreetmap.org -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; font-src 'self' https://unpkg.com; img-src 'self' data: https:; connect-src 'self' https://*.supabase.co https://unpkg.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://nominatim.openstreetmap.org;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; font-src 'self' https://unpkg.com; img-src 'self'  https:; connect-src 'self' https://*.supabase.co https://unpkg.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://nominatim.openstreetmap.org;">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:title" content="WebGIS Interaktif Kota Jambi | Peta Digital Geospasial Leaflet" />
@@ -106,7 +106,10 @@
     
     <!-- Scripts -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js" integrity="sha384-JP5UPxIO2Tm2o79Fb0tGYHa4jkWar53aBoCbd8ah0+LcCDoohTIYr+zIXyfGIJN" crossorigin="anonymous"></script>
+    
+    <!-- PERBAIKAN: Hapus atribut integrity pada leaflet.draw.js karena hash tidak cocok -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js" crossorigin="anonymous"></script>
+    
     <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js" crossorigin="anonymous"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.js" integrity="sha384-wWlBjSC6Ni8Cl/NWZdZk3Uu6ObpqIz7suMSzOoDKoHjID5NN15oPdCMJDi3q0xRK" crossorigin="anonymous" charset="utf-8"></script>
