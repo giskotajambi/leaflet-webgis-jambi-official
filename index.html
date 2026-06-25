@@ -15,6 +15,7 @@
     <!-- Content Security Policy (CSP) untuk mencegah XSS -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; font-src 'self' https://unpkg.com; img-src 'self' data: https:; connect-src 'self' https://*.supabase.co https://unpkg.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com;">
 
+    <!-- Open Graph / Facebook -->
     <meta property="og:title" content="WebGIS Interaktif Kota Jambi | Peta Digital Geospasial Leaflet" />
     <meta property="og:description" content="Platform WebGIS interaktif Kota Jambi menggunakan Leaflet. Solusi geospasial untuk eksplorasi, visualisasi data, dan pengukuran di wilayah Kota Jambi." />
     <meta property="og:type" content="website" />
@@ -22,11 +23,13 @@
     <meta property="og:image" content="https://giskotajambi.github.io/leaflet-webgis-jambi-official/assets/tampilan-website.png" />
     <meta property="og:site_name" content="WebGIS Kota Jambi" />
 
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="WebGIS Interaktif Kota Jambi | Peta Digital Geospasial Leaflet">
     <meta name="twitter:description" content="Platform WebGIS interaktif Kota Jambi menggunakan Leaflet. Solusi geospasial untuk eksplorasi, visualisasi data, dan pengukuran di wilayah Kota Jambi.">
     <meta name="twitter:image" content="https://giskotajambi.github.io/leaflet-webgis-jambi-official/assets/tampilan-website.png">
 
+    <!-- Structured Data (Schema.org) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -41,14 +44,17 @@
     }
     </script>
         
-    <link rel="icon" type="image/x-icon" href="https://giskotajambi.github.io/leaflet-webgis-jambi-official/favicon-48x48.ico">
+    <!-- FAVICON CONFIGURATION (Optimized for Google Search) -->
+    <!-- Prioritaskan ukuran besar (512px) agar terbaca oleh Google Bot -->
+    <link rel="icon" href="assets/favicon-512x512.png" type="image/png" sizes="512x512">
+    <link rel="apple-touch-icon" href="assets/favicon-180x180.png">
     
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+    <!-- Fallbacks untuk browser lain -->
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="180x180" href="assets/favicon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192x192.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512x512.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+    <!-- Hapus link .ico lama yang bermasalah dengan spasi -->
 
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css" integrity="sha384-NZLkVuBRMEeB4VeZz27WwTRvlhec30biQ8Xx7zG7JJnkvEKRg5qi6BNbEXo9ydwv" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" crossorigin="anonymous" />
@@ -80,6 +86,7 @@
         <p>&copy; 2026 GIS Jambi Geospatial Solution. All rights reserved.</p>
     </footer>
 
+    <!-- Additional Structured Data -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -99,6 +106,7 @@
     }
     </script>
     
+    <!-- Scripts -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js" integrity="sha384-JP5UPxIO2Tm2o79Fb0tGYMa44jkWar53aBoCbd8ah0+LcCDoohTIYr+zIXyfGIJN" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js" crossorigin="anonymous"></script>
