@@ -13,7 +13,7 @@
     <meta name="keywords" content="WebGIS Kota Jambi, Peta Digital Jambi, Geospasial Jambi, Leaflet GIS, Peta Interaktif Jambi, Pemetaan Kota Jambi">
 
     <!-- Content Security Policy (CSP) untuk mencegah XSS -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdn.jsdelivr.net; font-src 'self' https://unpkg.com; img-src 'self' data: https:; connect-src 'self' https://*.supabase.co">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; font-src 'self' https://unpkg.com; img-src 'self' data: https:; connect-src 'self' https://*.supabase.co https://unpkg.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com;">
 
     <meta property="og:title" content="WebGIS Interaktif Kota Jambi | Peta Digital Geospasial Leaflet" />
     <meta property="og:description" content="Platform WebGIS interaktif Kota Jambi menggunakan Leaflet. Solusi geospasial untuk eksplorasi, visualisasi data, dan pengukuran di wilayah Kota Jambi." />
@@ -101,7 +101,9 @@
     
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js" integrity="sha384-JP5UPxIO2Tm2o79Fb0tGYMa44jkWar53aBoCbd8ah0+LcCDoohTIYr+zIXyfGIJN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.js" integrity="sha384-wWlBjSC6Ni8Cl/NWZk3Uu6ObpqIz7suMSzOoDKoHjID5NN15oPdCMJDi3q0xRK" crossorigin="anonymous" charset="utf-8"></script>
+    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js" integrity="sha384-fbdbZeh2/kmwbXnucQO99O1VuGst3zR5igO+3FK3fy5/4g/nx9Yl9EnGTtM1ZmzG" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.js" integrity="sha384-wWlBjSC6Ni8Cl/NWZdZk3Uu6ObpqIz7suMSzOoDKoHjID5NN15oPdCMJDi3q0xRK" crossorigin="anonymous" charset="utf-8"></script>
 
     <script type="module" src="js/main.js"></script>
 </body>
