@@ -46,6 +46,9 @@
     <!-- FAVICON CONFIGURATION (Optimized for Google Search) -->
     <link rel="icon" href="assets/favicon-512x512.png" type="image/png" sizes="512x512">
     <link rel="apple-touch-icon" href="assets/favicon-180x180.png">
+
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#1a73e8" />
     
     <!-- Fallbacks untuk browser lain -->
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
@@ -63,6 +66,22 @@
     <script>
       window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
     </script>
+
+    <!-- TAMBAHKAN KODE INI UNTUK SERVICE WORKER -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/pwabuilder-sw.js')
+            .then(registration => {
+              console.log('Service Worker registered:', registration);
+            })
+            .catch(error => {
+              console.log('Service Worker registration failed:', error);
+            });
+        });
+      }
+    </script>
+    
     <script defer src="/_vercel/insights/script.js"></script>
 
 </head>
