@@ -68,19 +68,7 @@
     </script>
 
     <!-- TAMBAHKAN KODE INI UNTUK SERVICE WORKER -->
-    <script>
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/pwabuilder-sw.js')
-            .then(registration => {
-              console.log('Service Worker registered:', registration);
-            })
-            .catch(error => {
-              console.log('Service Worker registration failed:', error);
-            });
-        });
-      }
-    </script>
+    
     
     <script defer src="/_vercel/insights/script.js"></script>
 
