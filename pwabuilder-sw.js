@@ -1,92 +1,64 @@
-// PWA Builder Service Worker untuk WebGIS Kota Jambi
-const CACHE_NAME = 'webgis-jambi-v1';
+// PWA Builder Service Worker - Optimized for First Load
+const CACHE_NAME = 'webgis-jambi-v2';
+
+// Hanya cache file penting, jangan cache map tiles
 const urlsToCache = [
   '/',
   '/index.html',
   '/manifest.json',
   '/style.css',
-  '/js/main.js',
-  'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css',
-  'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js',
-  'https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css',
-  'https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js',
-  'https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css',
-  'https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js',
-  'https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.css',
-  'https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.js'
+  '/js/main.js'
 ];
 
-// Install event - Cache files penting
+// Install event
 self.addEventListener('install', event => {
-  console.log('[Service Worker] Installing...');
+  console.log('[SW] Installing...');
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then(cache => {
-        console.log('[Service Worker] Caching app shell');
-        return cache.addAll(urlsToCache);
-      })
-      .catch(error => {
-        console.log('[Service Worker] Cache failed:', error);
+        console.log('[SW] Caching app shell');
+        return cache.addAll(urlsToCache).catch(err => {
+          console.log('[SW] Cache failed:', err);
+        });
       })
   );
-  // Skip waiting agar service worker langsung aktif
   self.skipWaiting();
 });
 
-// Activate event - Bersihkan cache lama
+// Activate event
 self.addEventListener('activate', event => {
-  console.log('[Service Worker] Activating...');
+  console.log('[SW] Activating...');
   event.waitUntil(
     caches.keys().then(cacheNames => {
       return Promise.all(
         cacheNames.map(cacheName => {
           if (cacheName !== CACHE_NAME) {
-            console.log('[Service Worker] Deleting old cache:', cacheName);
+            console.log('[SW] Deleting old cache:', cacheName);
             return caches.delete(cacheName);
           }
         })
       );
     })
   );
-  // Claim clients agar service worker langsung mengontrol semua halaman
   self.clients.claim();
 });
 
-// Fetch event - Strategi: Network First, fallback to Cache
+// Fetch event - Network First dengan timeout
 self.addEventListener('fetch', event => {
-  // Skip non-GET requests
-  if (event.request.method !== 'GET') {
+  // Skip non-GET
+  if (event.request.method !== 'GET') return;
+
+  // Untuk map tiles: Network only, no cache
+  if (event.request.url.includes('tile.openstreetmap.org') ||
+      event.request.url.includes('tile.thunderforest.com')) {
+    event.respondWith(fetch(event.request));
     return;
   }
 
-  // Untuk request peta tiles (OpenStreetMap, dll)
-  if (event.request.url.includes('tile.openstreetmap.org') || 
-      event.request.url.includes('tile.thunderforest.com') ||
-      event.request.url.includes('basemap.at')) {
-    
-    event.respondWith(
-      caches.open(CACHE_NAME).then(cache => {
-        return fetch(event.request)
-          .then(response => {
-            // Clone response untuk disimpan di cache
-            const responseClone = response.clone();
-            cache.put(event.request, responseClone);
-            return response;
-          })
-          .catch(() => {
-            // Jika offline, ambil dari cache
-            return cache.match(event.request);
-          });
-      })
-    );
-    return;
-  }
-
-  // Untuk request lainnya: Network First
+  // Untuk file statis: Network First, fallback cache
   event.respondWith(
     fetch(event.request)
       .then(response => {
-        // Jika berhasil, simpan di cache
         const responseClone = response.clone();
         caches.open(CACHE_NAME).then(cache => {
           cache.put(event.request, responseClone);
@@ -94,17 +66,14 @@ self.addEventListener('fetch', event => {
         return response;
       })
       .catch(() => {
-        // Jika network gagal, ambil dari cache
-        return caches.match(event.request);
+        return caches.match(event.request).then(cachedResponse => {
+          return cachedResponse || new Response('Offline', {
+            status: 503,
+            statusText: 'Service Unavailable'
+          });
+        });
       })
   );
 });
 
-// Handle messages dari main thread
-self.addEventListener('message', event => {
-  if (event.data && event.data.type === 'SKIP_WAITING') {
-    self.skipWaiting();
-  }
-});
-
-console.log('[Service Worker] Service Worker loaded');
+console.log('[SW] Service Worker loaded');
