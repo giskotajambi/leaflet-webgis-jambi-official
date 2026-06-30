@@ -1,0 +1,8 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "id.giskotajambi.webgis",
+    "sha256_cert_fingerprints": ["E6:1F:58:F1:56:CF:73:7E:A8:08:D1:A8:49:BD:17:F4:79:BF:77:0A:38:19:49:E0:EE:6C:B6:7D:78:DA:41:8A"]
+  }
+}]
